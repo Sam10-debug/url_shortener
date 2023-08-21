@@ -19,11 +19,9 @@ const Hero: React.FC = () => {
             const jsonData = await response.json();
             setDataObject(jsonData)
             if(jsonData.ok){
-                console.log(jsonData)
                 setShortenedUrl(jsonData.result.full_short_link2)
                 setError("")
             }else if(jsonData.error_code===2){
-                console.log(jsonData)
                 setError("This is not a valid URL")
             }else if(jsonData.error_code===1){
                 setError("No url parameter set")
@@ -37,7 +35,7 @@ const Hero: React.FC = () => {
 
     const Row=()=>{
         return(
-            <div className=" flex justify-between md:w-3/5 mx-auto rounded-md bg-white text-Cyan rounded-md h-12 items-center px-6">
+            <div className=" flex justify-between md:w-3/5 mx-auto bg-slate-200 text-Cyan rounded-md h-12 items-center px-6">
                 <p>{rowUrl}</p>
                 <p>{shortenedUrl}</p>
             </div>
